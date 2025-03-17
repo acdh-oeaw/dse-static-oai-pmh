@@ -8,12 +8,6 @@ from app.config import ENDPOINTS
 app = FastAPI()
 
 
-verbs = [
-    "Identify",
-    "ListMetadataFormats",
-]
-
-
 @app.get("/")
 async def root(request: Request):
     return {"foo": "bar"}
@@ -22,7 +16,7 @@ async def root(request: Request):
 @app.get("/{project}/oai-pmh")
 async def oai_pmh_get(
     project: Annotated[str, Path(enum=list(ENDPOINTS.keys()))],
-    verb: str = Query(None, enum=verbs)
+    verb: str = Query(None, enum=list(VERB_MAPPING.keys()))
 ):
     """Handles OAI-PMH GET requests for specified projects.
     """
