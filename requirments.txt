@@ -1,2 +1,3 @@
 fastapi[all]
 fastapi-cache2
+acdh-tei-pyutils
