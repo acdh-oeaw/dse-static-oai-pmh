@@ -15,7 +15,10 @@ async def root(request: Request):
     for key, value in ENDPOINTS.items():
         endpoints[key] = value.copy()
         endpoints[key]["oai"] = f"{current_url}{key}/oai-pmh"
-    return {"endpoints": endpoints}
+    return {
+        "docs": f"{current_url}docs",
+        "endpoints": endpoints
+        }
 
 
 @app.get(
