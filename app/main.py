@@ -1,9 +1,18 @@
-from fastapi import FastAPI, Request, Response, Query, HTTPException, Path, Form
+import datetime
+
+import lxml.etree as ET
+from fastapi import FastAPI, Request, Response, Query, HTTPException, Path
 from typing import Annotated
 from acdh_tei_pyutils.tei import TeiReader
 
+
 from app.config import VERB_MAPPING
 from app.config import ENDPOINTS
+
+cur_date = cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+nsmap = {"oai": "http://www.openarchives.org/OAI/2.0/"}
 
 app = FastAPI()
 
@@ -71,30 +80,61 @@ async def oai_pmh_endpoint(
             params["set"] = set
         if resumptionToken:
             params["resumptionToken"] = resumptionToken
+    params["verb"] = used_verb
 
     if not used_verb:
         return Response(
             content="Missing OAI-PMH verb",
             status_code=400,
-            media_type="application/xml"
+            media_type="text/plain;charset=UTF-8",
         )
 
     if used_verb not in VERB_MAPPING:
         return Response(
             content="Invalid OAI-PMH verb",
             status_code=400,
-            media_type="application/xml"
+            media_type="text/plain;charset=UTF-8",
         )
 
     try:
         project_object = ENDPOINTS[project]
     except KeyError:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Project {project} not found"
-        )
+        raise HTTPException(status_code=404, detail=f"Project {project} not found")
 
     base_url = project_object["url"]
-    full_url = f"{base_url}{VERB_MAPPING[used_verb]}"
+    if used_verb == "GetRecord" and identifier:
+        full_url = f"{base_url}{VERB_MAPPING["ListRecords"]}"
+    elif used_verb == "GetRecord":
+        return Response(
+            content="The value of the identifier argument is unknown or illegal in this repository.",
+            status_code=400,
+            media_type="text/plain;charset=UTF-8",
+        )
+    else:
+        full_url = f"{base_url}{VERB_MAPPING[used_verb]}"
     doc = TeiReader(full_url)
+
+    for x in doc.tree.xpath(".//oai:responseDate", namespaces=nsmap):
+        x.text = cur_date
+    for x in doc.tree.xpath(".//oai:request", namespaces=nsmap):
+        for key, value in params.items():
+            x.attrib[key] = value
+    if used_verb == "GetRecord" and identifier:
+        try:
+            record = doc.tree.xpath(
+                f".//oai:record[./oai:header/oai:identifier='{identifier}']",
+                namespaces=nsmap,
+            )[0]
+        except IndexError:
+            return Response(
+                content="The value of the identifier argument is unknown or illegal in this repository.",
+                status_code=400,
+                media_type="text/plain;charset=UTF-8",
+            )
+        for bad in doc.tree.xpath(".//oai:ListRecords", namespaces=nsmap):
+            bad.getparent().remove(bad)
+        get_record = ET.Element("{http://www.openarchives.org/OAI/2.0/}GetRecord")
+        root = doc.tree.xpath("/oai:OAI-PMH", namespaces=nsmap)[0]
+        root.append(get_record)
+        get_record.append(record)
     return Response(content=doc.return_string(), media_type="application/xml")
