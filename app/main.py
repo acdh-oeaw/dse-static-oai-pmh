@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Response, Query, HTTPException, Path
+from fastapi import FastAPI, Request, Response, Query, HTTPException, Path, Form
 from typing import Annotated
 from acdh_tei_pyutils.tei import TeiReader
 
@@ -27,22 +27,74 @@ async def root(request: Request):
         }
     },
 )
-async def oai_pmh_get(
+@app.post(
+    "/{project}/oai-pmh",
+    responses={
+        200: {
+            "content": {"application/xml": {}},
+            "description": "Return the OAI-PMH XML response",
+        }
+    },
+)
+async def oai_pmh_endpoint(
+    request: Request,
     project: Annotated[str, Path(enum=list(ENDPOINTS.keys()))],
-    verb: str = Query(None, enum=list(VERB_MAPPING.keys())),
+    # GET parameters
+    verb: Annotated[str | None, Query(enum=list(VERB_MAPPING.keys()))] = None,
+    identifier: Annotated[str | None, Query()] = None,
+    metadataPrefix: Annotated[str | None, Query()] = None,
+    from_: Annotated[str | None, Query(alias="from")] = None,
+    until: Annotated[str | None, Query()] = None,
+    set: Annotated[str | None, Query()] = None,
+    resumptionToken: Annotated[str | None, Query()] = None,
 ):
-    """Handles OAI-PMH GET requests for specified projects.
+    """Handles OAI-PMH GET and POST requests for specified projects.
     Returns XML response in OAI-PMH format.
     """
-    if verb not in VERB_MAPPING:
-        return Response(content="Invalid or missing OAI-PMH verb", status_code=400)
+    params = {}
+    if request.method == "POST":
+        form_data = await request.form()
+        params = dict(form_data)
+        used_verb = params.get("verb")
+    else:
+        # GET request - collect query parameters
+        used_verb = verb
+        if identifier:
+            params["identifier"] = identifier
+        if metadataPrefix:
+            params["metadataPrefix"] = metadataPrefix
+        if from_:
+            params["from"] = from_
+        if until:
+            params["until"] = until
+        if set:
+            params["set"] = set
+        if resumptionToken:
+            params["resumptionToken"] = resumptionToken
+
+    if not used_verb:
+        return Response(
+            content="Missing OAI-PMH verb",
+            status_code=400,
+            media_type="application/xml"
+        )
+
+    if used_verb not in VERB_MAPPING:
+        return Response(
+            content="Invalid OAI-PMH verb",
+            status_code=400,
+            media_type="application/xml"
+        )
+
     try:
         project_object = ENDPOINTS[project]
     except KeyError:
         raise HTTPException(
-            status_code=404, detail=f"Project {project_object} not found"
+            status_code=404,
+            detail=f"Project {project} not found"
         )
+
     base_url = project_object["url"]
-    full_url = f"{base_url}{VERB_MAPPING[verb]}"
+    full_url = f"{base_url}{VERB_MAPPING[used_verb]}"
     doc = TeiReader(full_url)
     return Response(content=doc.return_string(), media_type="application/xml")
