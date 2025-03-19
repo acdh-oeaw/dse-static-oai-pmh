@@ -6,6 +6,10 @@ ENDPOINTS = {
     "familiensache": {
         "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",
         "url": "https://kaiserin-eleonora.oeaw.ac.at/oai-pmh/",
+    },
+    "wmp1": {
+        "title": "Das erste Wiener Merkantilprotokoll.",
+        "url": "https://wmp1.acdh.oeaw.ac.at/oai-pmh/",
     }
 }
 
