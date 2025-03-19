@@ -5,7 +5,7 @@ ENDPOINTS = {
     },
     "grazer-nuntiatur": {
         "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
-        "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/",
+        "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/oai-pmh/",
     },
     "tillich-lectures": {
         "title": "A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.",
