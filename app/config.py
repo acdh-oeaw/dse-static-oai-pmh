@@ -8,7 +8,7 @@ ENDPOINTS = {
         "url": "https://tillichcorrespondence.github.io/tillich-lectures-static/oai-pmh/",
     },
     "familiensache": {
-        "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",
+        "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",  # noqa: 501
         "url": "https://kaiserin-eleonora.oeaw.ac.at/oai-pmh/",
     },
     "wmp1": {
