@@ -107,7 +107,7 @@ async def oai_pmh_endpoint(
 
     base_url = project_object["url"]
     if used_verb == "GetRecord" and identifier:
-        full_url = f"{base_url}{VERB_MAPPING["ListRecords"]}"
+        full_url = f'{base_url}{VERB_MAPPING["ListRecords"]}'
     elif used_verb == "GetRecord":
         return Response(
             content="The value of the identifier argument is unknown or illegal in this repository.",
