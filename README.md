@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## config
-Register new dse-static-editions by configuring `ENDPOINTS` in [app/config.py].
+Register new dse-static-editions by configuring `ENDPOINTS` in [app/config.py](app/config.py).
 
 ### list endpoints
 ```shell
