@@ -3,6 +3,10 @@ ENDPOINTS = {
         "title": "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888–1931).",
         "url": "https://schnitzler-briefe.acdh.oeaw.ac.at/oai-pmh/",
     },
+    "grazer-nuntiatur": {
+        "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
+        "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/",
+    },
     "tillich-lectures": {
         "title": "A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.",
         "url": "https://tillichcorrespondence.github.io/tillich-lectures-static/oai-pmh/",
