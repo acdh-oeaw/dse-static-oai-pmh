@@ -1,4 +1,8 @@
 ENDPOINTS = {
+    "schnitzler-briefe": {
+        "title": "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888–1931).",
+        "url": "https://schnitzler-briefe.acdh.oeaw.ac.at/oai-pmh/",
+    },
     "tillich-lectures": {
         "title": "A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.",
         "url": "https://tillichcorrespondence.github.io/tillich-lectures-static/oai-pmh/",
