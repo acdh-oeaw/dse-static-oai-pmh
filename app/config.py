@@ -3,6 +3,10 @@ ENDPOINTS = {
         "title": "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888–1931).",
         "url": "https://schnitzler-briefe.acdh.oeaw.ac.at/oai-pmh/",
     },
+    "b-vg": {
+        "title": "Die Entstehung des Bundes-Verfassungsgesetzes 1920.",
+        "url": "https://b-vg.acdh.oeaw.ac.at/oai-pmh/",
+    },
     "grazer-nuntiatur": {
         "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
         "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/oai-pmh/",
