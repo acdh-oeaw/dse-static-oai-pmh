@@ -3,11 +3,11 @@ OAI-PMH proxy server for dse-static based digital editions, implemented with [Fa
 
 ## install and run
 
-```
+```shell
 git clone https://github.com/acdh-oeaw/dse-static-oai-pmh.git
 cd dse-static-oai-pmh
 pip install -r requirements.txt
-./startserver
+fastapi dev
 ```
 
 ## config

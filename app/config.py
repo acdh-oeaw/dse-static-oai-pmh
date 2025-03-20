@@ -11,6 +11,10 @@ ENDPOINTS = {
         "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
         "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/oai-pmh/",
     },
+    "nuntiatur-pius-xi": {
+        "title": "Nuntiatur Pius XI: Korrespondenz (1923–1936)",
+        "url": "https://nuntiatur-pius-xi.acdh.oeaw.ac.at/oai-pmh/",
+    },
     "tillich-lectures": {
         "title": "A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.",
         "url": "https://tillichcorrespondence.github.io/tillich-lectures-static/oai-pmh/",
