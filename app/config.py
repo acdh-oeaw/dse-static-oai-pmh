@@ -7,6 +7,10 @@ ENDPOINTS = {
         "title": "Die Entstehung des Bundes-Verfassungsgesetzes 1920.",
         "url": "https://b-vg.acdh.oeaw.ac.at/oai-pmh/",
     },
+    "akademieprotokolle": {
+        "title": "Sitzungsprotokolle der Österreichischen Akademie der Wissenschaften.",
+        "url": "https://akademieprotokolle.acdh.oeaw.ac.at/oai-pmh/",
+    },
     "grazer-nuntiatur": {
         "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
         "url": "https://grazer-nuntiatur.acdh.oeaw.ac.at/oai-pmh/",
