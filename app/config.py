@@ -26,6 +26,10 @@ ENDPOINTS = {
     "wmp1": {
         "title": "Das erste Wiener Merkantilprotokoll.",
         "url": "https://wmp1.acdh.oeaw.ac.at/oai-pmh/",
+    },
+    "gtrans": {
+        "title": "Die große Transformation: Staat und kommunaler öffentlicher Dienst in Wien (1918–1920).",
+        "url": "https://gtrans.acdh.oeaw.ac.at/oai-pmh/",
     }
 }
 
