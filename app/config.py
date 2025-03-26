@@ -34,7 +34,8 @@ ENDPOINTS = {
     "gtrans": {
         "title": "Die große Transformation: Staat und kommunaler öffentlicher Dienst in Wien (1918–1920).",
         "url": "https://gtrans.acdh.oeaw.ac.at/oai-pmh/",
-    }
+        "fulltext_xpath": "//tei:profileDesc/tei:abstract/.//text()"
+    },
 }
 
 VERB_MAPPING = {
@@ -44,3 +45,10 @@ VERB_MAPPING = {
     "ListMetadataFormats": "ListMetadataFormats.xml",
     "GetRecord": "",
 }
+
+FULLTEXT_BLACK_LIST = [
+    "tei:note",
+    "tei:abbr",
+    "tei:am",
+    "tei:del"
+]
