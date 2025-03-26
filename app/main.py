@@ -6,11 +6,11 @@ from typing import Annotated
 from acdh_tei_pyutils.tei import TeiReader
 
 
-from app.config import VERB_MAPPING
-from app.config import ENDPOINTS
+from app.config import VERB_MAPPING, ENDPOINTS, FULLTEXT_BLACK_LIST
 
 cur_date = cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-
+blacklist_xpath = ' or '.join([f'ancestor::{tag}' for tag in FULLTEXT_BLACK_LIST])
+fulltext_xpath = f'//tei:body/.//text()[not({blacklist_xpath})]'
 
 nsmap = {"oai": "http://www.openarchives.org/OAI/2.0/"}
 
@@ -24,6 +24,10 @@ async def root(request: Request):
     for key, value in ENDPOINTS.items():
         endpoints[key] = value.copy()
         endpoints[key]["oai"] = f"{current_url}{key}/oai-pmh"
+        try:
+            endpoints[key]["fulltext_xpath"]
+        except KeyError:
+            endpoints[key]["fulltext_xpath"] = fulltext_xpath
     return {
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
