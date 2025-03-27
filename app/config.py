@@ -31,6 +31,10 @@ ENDPOINTS = {
         "title": "Das erste Wiener Merkantilprotokoll.",
         "url": "https://wmp1.acdh.oeaw.ac.at/oai-pmh/",
     },
+    "amp": {
+        "title": "Auden Musulin Papers: A Digital Edition of W. H. Auden's Letters to Stella Musulin.",
+        "url": "https://csae8092.github.io/amp-app/oai-pmh/",
+    },
     "gtrans": {
         "title": "Die große Transformation: Staat und kommunaler öffentlicher Dienst in Wien (1918–1920).",
         "url": "https://gtrans.acdh.oeaw.ac.at/oai-pmh/",
