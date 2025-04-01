@@ -2,17 +2,17 @@ ENDPOINTS = {
     "schnitzler-briefe": {
         "title": "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888–1931).",
         "url": "https://schnitzler-briefe.acdh.oeaw.ac.at/oai-pmh/",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
     "b-vg": {
         "title": "Die Entstehung des Bundes-Verfassungsgesetzes 1920.",
         "url": "https://b-vg.acdh.oeaw.ac.at/oai-pmh/",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
     "akademieprotokolle": {
         "title": "Sitzungsprotokolle der Österreichischen Akademie der Wissenschaften.",
         "url": "https://akademieprotokolle.acdh.oeaw.ac.at/oai-pmh/",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
     "grazer-nuntiatur": {
         "title": "Grazer Nuntiatur: Korrespondenz (1580–1602).",
@@ -32,12 +32,12 @@ ENDPOINTS = {
     "familiensache": {
         "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",  # noqa: 501
         "url": "https://kaiserin-eleonora.oeaw.ac.at/oai-pmh/",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
     "wmp1": {
         "title": "Das erste Wiener Merkantilprotokoll.",
         "url": "https://wmp1.acdh.oeaw.ac.at/oai-pmh/",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
     "amp": {
         "title": "Auden Musulin Papers: A Digital Edition of W. H. Auden's Letters to Stella Musulin.",
@@ -48,7 +48,7 @@ ENDPOINTS = {
         "title": "Die große Transformation: Staat und kommunaler öffentlicher Dienst in Wien (1918–1920).",
         "url": "https://gtrans.acdh.oeaw.ac.at/oai-pmh/",
         "fulltext_xpath": "//tei:profileDesc/tei:abstract/.//text()",
-        "default_lang": "ger",
+        "default_lang": "deu",
     },
 }
 
