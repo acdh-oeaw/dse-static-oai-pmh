@@ -9,10 +9,14 @@ from acdh_tei_pyutils.tei import TeiReader
 from app.config import VERB_MAPPING, ENDPOINTS, FULLTEXT_BLACK_LIST
 
 cur_date = cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-blacklist_xpath = ' or '.join([f'ancestor::{tag}' for tag in FULLTEXT_BLACK_LIST])
-fulltext_xpath = f'//tei:body/.//text()[not({blacklist_xpath})]'
+blacklist_xpath = " or ".join([f"ancestor::{tag}" for tag in FULLTEXT_BLACK_LIST])
+fulltext_xpath = f"//tei:body/.//text()[not({blacklist_xpath})]"
 
-nsmap = {"oai": "http://www.openarchives.org/OAI/2.0/"}
+nsmap = {
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "oai_dc": "http://www.openarchives.org/OAI/2.0/oai_dc/",
+}
 
 app = FastAPI()
 
@@ -121,6 +125,15 @@ async def oai_pmh_endpoint(
     else:
         full_url = f"{base_url}{VERB_MAPPING[used_verb]}"
     doc = TeiReader(full_url)
+    try:
+        default_lang = ENDPOINTS[project]["default_lang"]
+    except KeyError:
+        default_lang = False
+    if default_lang:
+        for x in doc.tree.xpath(".//oai_dc:dc[not(./dc:language)]", namespaces=nsmap):
+            element = ET.Element("{http://purl.org/dc/elements/1.1/}language")
+            element.text = default_lang
+            x.append(element)
 
     for x in doc.tree.xpath(".//oai:responseDate", namespaces=nsmap):
         x.text = cur_date
