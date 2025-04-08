@@ -32,6 +32,16 @@ async def root(request: Request):
             endpoints[key]["fulltext_xpath"]
         except KeyError:
             endpoints[key]["fulltext_xpath"] = fulltext_xpath
+        try:
+            endpoints[key]["landingpage"]
+        except KeyError:
+            endpoints[key]["landingpage"] = endpoints[key]["url"].replace(
+                "/oai-pmh/", ""
+            )
+        try:
+            endpoints[key]["pid"]
+        except KeyError:
+            endpoints[key]["pid"] = "https://www.fake/pid.com"
     return {
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
