@@ -5,6 +5,12 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0016-84B3-8",
     },
+    "schnitzler-tagebuch": {
+        "title": "Arthur Schnitzler: Tagebuch (1879–1931).",
+        "url": "https://schnitzler-tagebuch.acdh.oeaw.ac.at/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0016-84BB-0",
+    },
     "b-vg": {
         "title": "Die Entstehung des Bundes-Verfassungsgesetzes 1920.",
         "url": "https://b-vg.acdh.oeaw.ac.at/oai-pmh/",
