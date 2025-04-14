@@ -38,6 +38,7 @@ ENDPOINTS = {
     "tillich-lectures": {
         "title": "A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.",
         "url": "https://tillichcorrespondence.github.io/tillich-lectures-static/oai-pmh/",
+        "pid": "https://hdl.handle.net/21.11115/0000-0016-8530-B",
         "default_lang": "eng",
     },
     "familiensache": {
@@ -56,6 +57,7 @@ ENDPOINTS = {
         "title": "Auden Musulin Papers: A Digital Edition of W. H. Auden's Letters to Stella Musulin.",
         "url": "https://csae8092.github.io/amp-app/oai-pmh/",
         "default_lang": "eng",
+        "pid": "https://hdl.handle.net/21.11115/0000-0016-8531-A",
     },
     "gtrans": {
         "title": "Die große Transformation: Staat und kommunaler öffentlicher Dienst in Wien (1918–1920).",
@@ -63,6 +65,12 @@ ENDPOINTS = {
         "fulltext_xpath": "//tei:profileDesc/tei:abstract/.//text()",
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0016-84BA-1",
+    },
+    "dhd-abstracts": {
+        "title": "DHd Abstracts",
+        "url": "https://acdh-oeaw.github.io/dhd-abstracts-static/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0016-8532-9",
     },
 }
 
