@@ -72,6 +72,12 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0016-8532-9",
     },
+    "staribacher": {
+        "title": "Josef Staribacher Tagebücher (1970–1983)",
+        "url": "https://staribacher.acdh.oeaw.ac.at/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0016-9446-2",
+    },
 }
 
 VERB_MAPPING = {
