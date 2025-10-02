@@ -85,6 +85,12 @@ ENDPOINTS = {
         "default_lang": "lat",
         "pid": "https://hdl.handle.net/21.11115/0000-0017-DC59-C",
     },
+    "legalkraus": {
+        "title": "Karl Kraus: Rechtsakten der Kanzlei Oskar Samek",
+        "url": "https://karl-kraus.github.io/legalkraus-static/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0017-DC5A-B",
+    },
 }
 
 VERB_MAPPING = {
