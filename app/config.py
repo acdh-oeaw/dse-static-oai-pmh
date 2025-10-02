@@ -78,6 +78,13 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0016-9446-2",
     },
+    "jad": {
+        "title": "Medieval Reception of the Roman Conquest of Jerusalem",
+        "url": "https://jerusalem-70-ad.github.io/jad-oai-pmh/oai-pmh/",
+        "fulltext_xpath": "//tei:body//tei:p//text()",
+        "default_lang": "lat",
+        "pid": "https://hdl.handle.net/21.11115/0000-0017-DC59-C",
+    },
 }
 
 VERB_MAPPING = {
