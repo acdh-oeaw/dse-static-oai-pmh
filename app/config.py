@@ -91,6 +91,12 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0017-DC5A-B",
     },
+    "wiener-rundschau": {
+        "title": "Wiener Rundschau digital (1910–1954)",
+        "url": "https://acdh-oeaw.github.io/wiener-rundschau-static/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0018-07FE-1",
+    },
 }
 
 VERB_MAPPING = {
