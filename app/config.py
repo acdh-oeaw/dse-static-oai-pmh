@@ -97,6 +97,12 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0018-07FF-0",
     },
+    "baedker-digital": {
+        "title": "Baedeker digital (1875–1914)",
+        "url": "https://acdh-oeaw.github.io/bd-static/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0018-085D-6",
+    },
 }
 
 VERB_MAPPING = {
