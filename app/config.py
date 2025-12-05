@@ -103,6 +103,12 @@ ENDPOINTS = {
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0018-085D-6",
     },
+    "dse-static": {
+        "title": "DSE-Static demo app",
+        "url": "https://acdh-oeaw.github.io/dse-static-cookiecutter/oai-pmh/",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-0018-085E-5",
+    },
 }
 
 VERB_MAPPING = {
