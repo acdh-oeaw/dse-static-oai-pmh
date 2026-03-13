@@ -1,0 +1,23 @@
+name: Test
+on: 
+  push:
+jobs:
+  test:
+    name: Test Application
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the repo  
+      uses: actions/checkout@v6
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v7    
+    - name: Run tests
+      run: uv run coverage run -m pytest -v
+    - name: Create Coverage Report
+      run: uv run coverage xml
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        files: ./coverage.xml
+        fail_ci_if_error: false
+        verbose: true
