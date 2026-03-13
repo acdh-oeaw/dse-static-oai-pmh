@@ -13,6 +13,6 @@ jobs:
       - name: Set up Python environment
         uses: astral-sh/ruff-action@v3
         with:
-          src: "./src"
+          src: "./app"
       - name: Ruff check
         run: ruff check -v
