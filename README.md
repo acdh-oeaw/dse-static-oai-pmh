@@ -1,4 +1,10 @@
+[![Test](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/test.yml/badge.svg)](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/test.yml)
+[![Lint](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/lint.yml/badge.svg)](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/lint.yml)
+[![Build and publish Docker image](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/build.yml/badge.svg)](https://github.com/acdh-oeaw/dse-static-oai-pmh/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/acdh-oeaw/dse-static-oai-pmh/graph/badge.svg?token=zWVEoXKCFy)](https://codecov.io/gh/acdh-oeaw/dse-static-oai-pmh)
+
 # dse-static-oai-pmh
+
 OAI-PMH proxy server for dse-static based digital editions, implemented with [FastAPI](https://fastapi.tiangolo.com/)
 
 ## install and run
