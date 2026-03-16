@@ -45,7 +45,7 @@ async def root(request: Request):
     return {
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
-        "endpoints": endpoints,
+        "endpoints": {k: v for k, v in sorted(endpoints.items(), key=lambda item: item[0])},
     }
 
 
