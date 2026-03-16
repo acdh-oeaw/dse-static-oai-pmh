@@ -27,6 +27,19 @@ def test_root_returns_docs_and_endpoint_metadata(client):
     )
 
 
+def test_for_missing_props(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["docs"] == "http://testserver/docs"
+    assert "hsa" in payload["endpoints"]
+    assert (
+        payload["endpoints"]["hsa"]["oai"]
+        == "http://testserver/hsa/oai-pmh"
+    )
+    assert "fake" in payload["endpoints"]["hsa"]["pid"]
+
+
 def test_oai_get_missing_verb_returns_400(client):
     response = client.get("/dse-static/oai-pmh")
     assert response.status_code == 400

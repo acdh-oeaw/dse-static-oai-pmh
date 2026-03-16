@@ -19,7 +19,7 @@ uv run fastapi dev
 
 ```shell
 uv run coverage run -m pytest -v
-``
+```
 
 ## config
 Register new dse-static-editions by configuring `ENDPOINTS` in [app/config.py](app/config.py).
