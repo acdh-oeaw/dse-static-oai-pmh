@@ -6,11 +6,12 @@ from typing import Annotated
 from acdh_tei_pyutils.tei import TeiReader
 
 
-from app.config import VERB_MAPPING, ENDPOINTS, FULLTEXT_BLACK_LIST
+from app.config import VERB_MAPPING, ENDPOINTS, FULLTEXT_BLACK_LIST, PROVIDERS
 
 cur_date = cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 blacklist_xpath = " or ".join([f"ancestor::{tag}" for tag in FULLTEXT_BLACK_LIST])
 fulltext_xpath = f"//tei:body/.//text()[not({blacklist_xpath})]"
+default_provider = "acdh"
 
 nsmap = {
     "oai": "http://www.openarchives.org/OAI/2.0/",
@@ -22,7 +23,16 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root(request: Request):
+async def root(request: Request, provider: Annotated[str | None, Query(enum=PROVIDERS)] = None) -> dict :
+    """Lists all registered proejcts
+
+    Args:
+        request (Request): _description_
+        provider (Annotated[str  |  None, Query, optional): Filter projects by providers (e.g. acdh, gams). Defaults to PROVIDERS)]=None.
+
+    Returns:
+        dict: A dict with keys: docs, code-repo, and endpoints
+    """
     current_url = str(request.base_url)
     endpoints = {}
     for key, value in ENDPOINTS.items():
@@ -42,10 +52,22 @@ async def root(request: Request):
             endpoints[key]["pid"]
         except KeyError:
             endpoints[key]["pid"] = "https://www.fake/pid.com"
+        try:
+            cur_provider = endpoints[key]["provider"]
+            if cur_provider in PROVIDERS:
+                pass
+            else:
+                endpoints[key]["provider"] = "other"
+        except KeyError:
+            endpoints[key]["provider"] = default_provider
+    payload = {k: v for k, v in sorted(endpoints.items(), key=lambda item: item[0])}
+    if provider and provider in PROVIDERS:
+        payload = {k: v for k, v in payload.items() if v["provider"] == provider}
+        
     return {
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
-        "endpoints": {k: v for k, v in sorted(endpoints.items(), key=lambda item: item[0])},
+        "endpoints": payload,
     }
 
 

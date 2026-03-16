@@ -68,3 +68,19 @@ def test_getrecord_without_identifier_returns_400(client):
     response = client.get("/dse-static/oai-pmh", params={"verb": "GetRecord"})
     assert response.status_code == 400
     assert "identifier argument is unknown or illegal" in response.text
+
+
+def test_provider_filter_gams_returns_only_gams_endpoints(client):
+    response = client.get("/", params={"provider": "gams"})
+    assert response.status_code == 200
+    endpoints = response.json()["endpoints"]
+    assert "hsa" in endpoints
+    assert all(v["provider"] == "gams" for v in endpoints.values())
+
+
+def test_provider_filter_acdh_excludes_gams_endpoints(client):
+    response = client.get("/", params={"provider": "acdh"})
+    assert response.status_code == 200
+    endpoints = response.json()["endpoints"]
+    assert "hsa" not in endpoints
+    assert all(v["provider"] == "acdh" for v in endpoints.values())
