@@ -114,6 +114,12 @@ ENDPOINTS = {
         "url": "https://acdh-oeaw.github.io/corpus-search-static-sources/hsa/oai-pmh/",
         "provider": "gams"
     },
+    "mrp": {
+        "title": "Die Ministerratsprotokolle 1848–1918",
+        "url": "https://acdh-oeaw.github.io/corpus-search-static-sources/mrp/oai-pmh/",
+        "provider": "ihb",
+        "default_lang": "deu",
+    },
 }
 
 VERB_MAPPING = {
@@ -126,4 +132,4 @@ VERB_MAPPING = {
 
 FULLTEXT_BLACK_LIST = ["tei:note", "tei:abbr", "tei:am", "tei:del"]
 
-PROVIDERS = ["acdh", "gams", "other"]
+PROVIDERS = ["acdh", "gams", "ihb", "other"]
