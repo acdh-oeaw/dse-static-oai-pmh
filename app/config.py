@@ -110,7 +110,7 @@ ENDPOINTS = {
         "pid": "https://hdl.handle.net/21.11115/0000-0018-085E-5",
     },
     "hsa": {
-        "title": "Hugo Schuchardt Archiv",
+        "title": "Hugo Schuchardt Archiv – TEST",
         "url": "https://acdh-oeaw.github.io/corpus-search-static-sources/hsa/oai-pmh/",
     },
 }
