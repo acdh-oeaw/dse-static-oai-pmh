@@ -112,6 +112,7 @@ ENDPOINTS = {
     "hsa": {
         "title": "Hugo Schuchardt Archiv – TEST",
         "url": "https://acdh-oeaw.github.io/corpus-search-static-sources/hsa/oai-pmh/",
+        "provider": "gams"
     },
 }
 
@@ -124,3 +125,5 @@ VERB_MAPPING = {
 }
 
 FULLTEXT_BLACK_LIST = ["tei:note", "tei:abbr", "tei:am", "tei:del"]
+
+PROVIDERS = ["acdh", "gams", "other"]
