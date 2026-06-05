@@ -84,6 +84,7 @@ ENDPOINTS = {
         "fulltext_xpath": "//tei:body//tei:p//text()",
         "default_lang": "lat",
         "pid": "https://hdl.handle.net/21.11115/0000-0017-DC59-C",
+        "provider": "imafo"
     },
     "legalkraus": {
         "title": "Karl Kraus: Rechtsakten der Kanzlei Oskar Samek",
@@ -120,6 +121,14 @@ ENDPOINTS = {
         "provider": "ihb",
         "default_lang": "deu",
     },
+    "hit": {
+        "title": "Histories in Transition",
+        "url": "https://histories-in-transition.github.io/hit-astro/oai-pmh/",
+        "fulltext_xpath": "//tei:sourceDesc/.//text()",
+        "provider": "imafo",
+        "default_lang": "deu",
+        "pid": "https://hdl.handle.net/21.11115/0000-001F-FDA7-6",
+    },
 }
 
 VERB_MAPPING = {
@@ -132,4 +141,4 @@ VERB_MAPPING = {
 
 FULLTEXT_BLACK_LIST = ["tei:note", "tei:abbr", "tei:am", "tei:del"]
 
-PROVIDERS = ["acdh", "gams", "ihb", "other"]
+PROVIDERS = ["acdh", "gams", "ihb", "imafo", "other"]
