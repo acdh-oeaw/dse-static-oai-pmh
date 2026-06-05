@@ -22,25 +22,30 @@ uv run coverage run -m pytest -v
 ```
 
 ## config
+
 Register new dse-static-editions by configuring `ENDPOINTS` in [app/config.py](app/config.py).
 
 ### list endpoints
+
 ```shell
 curl "http://localhost:8000"
 ```
 
 ### docs endpoints
+
 ```shell
 curl "http://localhost:8000/docs"
 ```
 
 ### GET request
+
 ```shell
 curl "http://localhost:8000/{project}/oai-pmh?verb=Identify"
 curl "http://localhost:8000/tillich-lectures/oai-pmh?verb=Identify"
 ```
 
 ### POST request
+
 ```shell
 curl -X POST -d "verb=Identify" "http://localhost:8000/{project}/oai-pmh"
 curl -X POST -d "verb=Identify" "http://localhost:8000/tillich-lectures/oai-pmh"
