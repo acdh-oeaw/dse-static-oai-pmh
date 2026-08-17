@@ -68,6 +68,7 @@ async def root(request: Request, provider: Annotated[str | None, Query(enum=PROV
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
         "endpoints": payload,
+        "nr_of_endpoints": len(payload)
     }
 
 
