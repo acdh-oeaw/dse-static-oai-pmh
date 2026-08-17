@@ -42,7 +42,7 @@ ENDPOINTS = {
         "default_lang": "eng",
     },
     "familiensache": {
-        "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",  # noqa: 501
+        "title": "Familiensache. Dynastische Handlungsspielräume in der Korrespondenz von Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720).",
         "url": "https://kaiserin-eleonora.oeaw.ac.at/oai-pmh/",
         "default_lang": "deu",
         "pid": "https://hdl.handle.net/21.11115/0000-0016-84B8-3",
@@ -84,7 +84,7 @@ ENDPOINTS = {
         "fulltext_xpath": "//tei:body//tei:div[@type='normalized_spelling']//tei:p//text()",
         "default_lang": "lat",
         "pid": "https://hdl.handle.net/21.11115/0000-0017-DC59-C",
-        "provider": "imafo"
+        "provider": "imafo",
     },
     "legalkraus": {
         "title": "Karl Kraus: Rechtsakten der Kanzlei Oskar Samek",
@@ -113,7 +113,7 @@ ENDPOINTS = {
     "hsa": {
         "title": "Hugo Schuchardt Archiv – TEST",
         "url": "https://acdh-oeaw.github.io/corpus-search-static-sources/hsa/oai-pmh/",
-        "provider": "gams"
+        "provider": "gams",
     },
     "mrp": {
         "title": "Die Ministerratsprotokolle 1848–1918",
