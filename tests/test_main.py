@@ -33,10 +33,7 @@ def test_for_missing_props(client):
     payload = response.json()
     assert payload["docs"] == "http://testserver/docs"
     assert "hsa" in payload["endpoints"]
-    assert (
-        payload["endpoints"]["hsa"]["oai"]
-        == "http://testserver/hsa/oai-pmh"
-    )
+    assert payload["endpoints"]["hsa"]["oai"] == "http://testserver/hsa/oai-pmh"
     assert "fake" in payload["endpoints"]["hsa"]["pid"]
 
 

@@ -1,14 +1,13 @@
 import datetime
+from typing import Annotated
 
 import lxml.etree as ET
-from fastapi import FastAPI, Request, Response, Query, HTTPException, Path
-from typing import Annotated
 from acdh_tei_pyutils.tei import TeiReader
+from fastapi import FastAPI, HTTPException, Path, Query, Request, Response
 
+from app.config import ENDPOINTS, FULLTEXT_BLACK_LIST, PROVIDERS, VERB_MAPPING
 
-from app.config import VERB_MAPPING, ENDPOINTS, FULLTEXT_BLACK_LIST, PROVIDERS
-
-cur_date = cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+cur_date = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 blacklist_xpath = " or ".join([f"ancestor::{tag}" for tag in FULLTEXT_BLACK_LIST])
 fulltext_xpath = f"//tei:body/.//text()[not({blacklist_xpath})]"
 default_provider = "acdh"
@@ -23,7 +22,9 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root(request: Request, provider: Annotated[str | None, Query(enum=PROVIDERS)] = None) -> dict :
+async def root(
+    request: Request, provider: Annotated[str | None, Query(enum=PROVIDERS)] = None
+) -> dict:
     """Lists all registered proejcts
 
     Args:
@@ -63,12 +64,12 @@ async def root(request: Request, provider: Annotated[str | None, Query(enum=PROV
     payload = {k: v for k, v in sorted(endpoints.items(), key=lambda item: item[0])}
     if provider and provider in PROVIDERS:
         payload = {k: v for k, v in payload.items() if v["provider"] == provider}
-        
+
     return {
         "docs": f"{current_url}docs",
         "code-repo": "https://github.com/acdh-oeaw/dse-static-oai-pmh",
         "endpoints": payload,
-        "nr_of_endpoints": len(payload)
+        "nr_of_endpoints": len(payload),
     }
 
 
