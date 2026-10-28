@@ -23,7 +23,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root(
-    request: Request, provider: Annotated[str | None, Query(enum=PROVIDERS)] = None
+    request: Request, provider: Annotated[str | None, Query(json_schema_extra={"enum": list(PROVIDERS)})] = None
 ) -> dict:
     """Lists all registered proejcts
 
@@ -93,9 +93,9 @@ async def root(
 )
 async def oai_pmh_endpoint(
     request: Request,
-    project: Annotated[str, Path(enum=list(ENDPOINTS.keys()))],
+    project: Annotated[str, Path(json_schema_extra={"enum": list(ENDPOINTS.keys())})],
     # GET parameters
-    verb: Annotated[str | None, Query(enum=list(VERB_MAPPING.keys()))] = None,
+    verb: Annotated[str | None, Query(json_schema_extra={"enum": list(VERB_MAPPING.keys())})] = None,
     identifier: Annotated[str | None, Query()] = None,
     metadataPrefix: Annotated[str | None, Query()] = None,
     from_: Annotated[str | None, Query(alias="from")] = None,
