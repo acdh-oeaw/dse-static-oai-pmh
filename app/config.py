@@ -121,14 +121,14 @@ ENDPOINTS = {
         "provider": "ihb",
         "default_lang": "deu",
     },
-    "hit": {
-        "title": "Histories in Transition",
-        "url": "https://histories-in-transition.github.io/hit-astro/oai-pmh/",
-        "fulltext_xpath": "//tei:sourceDesc/.//text()",
-        "provider": "imafo",
-        "default_lang": "deu",
-        "pid": "https://hdl.handle.net/21.11115/0000-001F-FDA7-6",
-    },
+    # "hit": {
+    #     "title": "Histories in Transition",
+    #     "url": "https://histories-in-transition.github.io/hit-astro/oai-pmh/",
+    #     "fulltext_xpath": "//tei:sourceDesc/.//text()",
+    #     "provider": "imafo",
+    #     "default_lang": "deu",
+    #     "pid": "https://hdl.handle.net/21.11115/0000-001F-FDA7-6",
+    # },
 }
 
 VERB_MAPPING = {
